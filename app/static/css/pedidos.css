@@ -1,0 +1,54 @@
+.tabela-css {
+    width: 85%;
+    min-width: 600px;
+    margin: auto;
+    margin-top: 100px;
+    background-color: white;
+    box-shadow: 1px 1px 5px #ccc;
+    border-radius: 5px;
+}
+
+.form-control {
+    margin: 10px;
+    padding: 10px;
+}
+
+.escolha-status {
+    margin: 10px;
+    padding: 10px;
+    margin-bottom: 0px;
+}
+
+.busca-data {
+    margin-top: 3px;
+}
+
+.fim {
+    margin-left: 4.5px;
+}
+
+.btn-primary {
+    margin-top: 10px;
+}
+
+.btn-success {
+    margin-top: 10px;
+}
+
+.btn-secondary {
+    margin: 10px;
+}
+
+.btn-ok {
+    width: 15px;
+}
+
+.btn-detalhes {
+    opacity: 0.8;
+    margin-left: 15px;
+    width: 25px;
+}
+
+.btn-detalhes:hover {
+    opacity: 1;
+}

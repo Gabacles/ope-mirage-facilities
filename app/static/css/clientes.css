@@ -1,0 +1,35 @@
+.tabela-css {
+    width: 85%;
+    margin: auto;
+    margin-top: 10vh;
+    background-color: white;
+    box-shadow: 1px 1px 5px #ccc;
+    border-radius: 5px;
+}
+
+.form-control {
+    margin: 10px;
+    padding: 10px;
+}
+
+.btn-primary {
+    margin: 10px;
+}
+
+.btn-success {
+    margin: 10px;
+}
+
+.btn-secondary {
+    margin: 10px;
+}
+
+.tabela-css > table > tbody > tr > .btn-detalhes > a > img {
+    margin-left: 15px;
+    width: 25px;
+}
+
+.tabela-css > table > tbody > tr > .btn-pedido > a > img {
+    margin-left: 15px;
+    width: 35px;
+}

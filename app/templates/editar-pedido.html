@@ -1,0 +1,58 @@
+{% extends 'model.html' %}
+{% block title %}
+<title>Editar Pedido</title>
+{% endblock %}
+{% block links %}
+<link rel="stylesheet" href="/static/css/editar-pedido.css">
+{% endblock %}
+{% block main %}
+<form action="/editar-pedido/{{ pedido.id_pedido }}" class="editar-pedido" method="POST">
+    <div class="card-top">
+        <a href="/pedidos"><img src="/static/images/close.png" alt="icone-fechar"></a>
+        <h2>Pedido de Venda</h2>
+        {% with mensagens = get_flashed_messages() %}
+            {% if mensagens %}
+                <ul class="erros" style="display: block;">
+                {% for msg in mensagens %}
+                    <li>{{ msg }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-8">
+            <label for="inputName4">Nome do Cliente</label>
+            <input type="text" name="nome-cliente" class="form-control" id="inputName4" value="{{ nome_cliente }}"
+                maxlength="100" disabled>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputName4">Status do pedido</label>
+            <select name="status" class="select-status" required>
+                <option value="aberto">{{ produto.status_pedido }}</option>
+                <option value="aberto">Aberto</option>
+                <option value="atendido">Atendido</option>
+                <option value="cancelado">Cancelado</option>
+            </select>
+        </div>
+    </div>
+    {% for p in produtos_quantidade %}
+    <div class="form-row">
+        <div class="form-group col-md-8">
+            <label for="inputName4">Nome Produto</label>
+            <a href="/deletar-item-pedido/{{p}}/{{produtos_quantidade[p][0]}}/{{pedido.id_pedido}}"><img class="imagem-lixeira" src="/static/images/lixeira.png"></a>
+            <input type="text" name="nome-produto{{i}}" value="{{produtos_quantidade[p][1]}}" class="form-control" id="inputName4"
+                maxlength="100" disabled>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputName4">Quantidade</label>
+            <input type="number" name="quantidade{{p}}" value="{{produtos_quantidade[p][2]}}" class="form-control"
+                id="inputName4" maxlength="1000">
+        </div>
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Alterar</button>
+    <a class="delete" href="/deletar-pedido/{{ pedido.id_pedido }}"><button type="button"
+            class="btn btn-primary">Excluir</button></a>
+</form>
+{% endblock %}

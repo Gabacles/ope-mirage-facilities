@@ -1,0 +1,41 @@
+{% extends 'model.html' %}
+{% block title %}
+<title>Criar Pedido</title>
+{% endblock %}
+{% block links %}
+<link rel="stylesheet" href="/static/css/addpedido.css">
+{% endblock %}
+{% block main %}
+<form action="/addpedido/{{ cliente.id_cliente }}" class="cadastro-pedido" method="POST">
+    <div class="card-top">
+        <a href="/clientes"><img src="/static/images/close.png"></a>
+        <h2>Pedido de Venda</h2>
+    </div>
+    <div class="form-group col-md-8">
+        <label for="inputName4">Nome do Cliente</label>
+        <input type="text" name="nome-cliente" class="form-control" id="inputName4" value="{{ cliente.nome }}" maxlength="100" disabled>
+    </div>
+    {% for i in range(count) %}
+    <div class="form-row">
+        <div class="form-group col-md-8">
+            <label for="inputName4">Nome Produto</label>
+            <select name="id-produto{{i}}" class="select-produto" required>
+                <option value="">Selecione um produto</option>
+                {% for c in cardapio %}
+                <option value="{{c.id_produto}}">{{c.nome_produto}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputName4">Quantidade</label>
+            <input type="number" name="quantidade{{i}}" class="form-control" id="inputName4" maxlength="1000" required>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="numero-produtos">
+        <a href="/aumentar/{{ cliente.id_cliente }}"><button type="button" class="btn btn-primary">+</button></a>
+        <a href="/diminuir/{{ cliente.id_cliente }}"><button type="button" class="btn btn-primary">-</button></a>
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
+{% endblock %}

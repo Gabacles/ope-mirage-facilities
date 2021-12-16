@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>Document</title>
+    {% endblock %}
+    {% block links %}{% endblock %}
+    <link rel="stylesheet" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="/static/css/model.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body class="body-css">
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        {% if not session.usuario %}
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/contato">Contato</a>
+            </li>
+        </ul>
+        {% else %}
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Mirage Facilities</a>
+        <a class="link-sair" href="/sair">
+            <button type="button" class="btn btn-outline-danger">Sair</button>
+        </a>
+        {% endif %}
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            {% if session.usuario %}
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/dashboard"><img class="imagem-menu" src="/static/images/dashboard2.png" alt=""
+                                ><span class="item">Dashboard</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/clientes"><img class="imagem-menu" src="/static/images/client.png" alt=""
+                                >Clientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/pedidos"><img class="imagem-menu" src="/static/images/file.png" alt=""
+                                >Pedidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/cardapio"><img class="imagem-menu" src="/static/images/cart2.png" alt=""
+                                >Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/grafico"><img class="imagem-menu" src="/static/images/chart.png" alt=""
+                                >Relatórios</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            {% endif %}
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <div class="size-monitor">
+                    {% block main %}
+                    {% endblock %}
+                </div>
+            </main>
+        </div>
+    </div>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"></div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"></div>
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"></div>
+    </div>
+    {% block scripts %}
+    {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

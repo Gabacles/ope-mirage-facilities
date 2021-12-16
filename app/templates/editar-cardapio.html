@@ -1,0 +1,30 @@
+{% extends 'model.html' %}
+{% block title %}
+    <title>Editar Cardápio</title>
+{% endblock %}
+{% block links %}
+    <link rel="stylesheet" href="/static/css/editar-cardapio.css">
+{% endblock %}
+{% block main %}
+<form class="editar-cardapio" action="/editar-cardapio/{{ produto.id_produto }}" method="POST">
+    <div class="card-top">
+        <a href="/cardapio"><img src="/static/images/close.png"></a>
+        <h2>Editar Produto</h2>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputName4">Nome</label>
+            <input type="text" name="nome-produto" class="form-control" id="inputName4" value="{{ produto.nome_produto }}" maxlength="100" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputId4">Quantidade</label>
+            <input type="text" name="quantidade" class="form-control" id="inputId4" value="{{ produto.quantidade }}" maxlength="1000" required>
+        </div>
+    </div>
+    <div class="botoes">
+        <button type="submit" class="btn btn-primary">Alterar</button>
+        <a class="delete" href="/deletar-produto/{{ produto.id_produto }}"><button type="button" class="btn btn-primary">Excluir</button></a>
+    </div>
+    
+</form>
+{% endblock %}

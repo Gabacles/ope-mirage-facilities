@@ -1,0 +1,32 @@
+.editar-cliente {
+    width: 1000px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 1px 1px 5px #ccc;
+    border-radius: 5px;
+}
+
+.editar-cliente > .botoes {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.editar-cliente > .botoes > button {
+    margin-right: 30px;
+}
+
+.editar-cliente > .botoes > .cancelar {
+    margin-left: 30px;
+}
+
+.editar-cliente > .card-top > h2 {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.editar-cliente > .card-top > a > img {
+    width: 25px;
+    margin-left: 900px;
+}

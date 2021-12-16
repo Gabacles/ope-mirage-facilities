@@ -1,0 +1,46 @@
+{% extends 'model.html' %}
+{% block title %}
+    <title>Cardapio</title>
+{% endblock %}
+{% block links %}
+    <link rel="stylesheet" href="/static/css/cardapio.css">
+{% endblock %}
+{% block main %}
+<form action="" class="tabela-css" method="POST">
+    <div class="row">
+        <div class="col">
+            <input type="text" name="busca" class="form-control" placeholder="Nome">
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+            <a href="add-cardapio"><button type="button" class="btn btn-success">Cadastrar</button></a>
+            {% if produto_encontrado %}
+                <a href="/cardapio"><button type="button" class="btn btn-secondary">Voltar</button></a>
+            {% endif %}
+        </div>
+    </div>
+    <table class="table table-responsive-xl">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome do produto</th>
+                <th scope="col">Quantidade</th>
+                <th scope="col">Detalhes</th>
+                <th scope="col">Histórico</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in produtos %}
+            <tr>
+                <th scope="row">{{ p.id_produto }}</th>
+                <td>{{ p.nome_produto }}</td>
+                <td>{{ p.quantidade }}</td>
+                <td class="btn-detalhes"><a href="/editar-cardapio/{{p.id_produto}}"><img class="img-cardapio" src="/static/images/detalhes.png"></a></td>
+                <td class="btn-detalhes"><a href="/historico/{{p.id_produto}}"><img class="img-cardapio" src="/static/images/historico.png"></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+</form>
+{% endblock %}

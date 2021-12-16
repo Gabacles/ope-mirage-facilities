@@ -1,0 +1,32 @@
+{% extends 'model.html' %}
+{% block title %}
+<title>Histórico</title>
+{% endblock %}
+{% block links %}
+<link rel="stylesheet" href="/static/css/historico-cardapio.css">
+{% endblock %}
+{% block main %}
+<form action="" class="historico">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID Pedido</th>
+                <th scope="col">Nome do produto</th>
+                <th scope="col">Quantidade</th>
+                <th scope="col">Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for itens, cardapio, pedido in busca %}
+            <tr>
+                <th scope="row">{{ itens.id_pedido }}</th>
+                <td>{{ cardapio.nome_produto }}</td>
+                <td>{{ itens.quantidade }}</td>
+                <td>{{ pedido.data.strftime('%d/%m/%Y') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h4 class="total">Total vendido: {{total_vendas}}</h3>
+</form>
+{% endblock %}

@@ -1,0 +1,19 @@
+.historico {
+    width: 800px;
+    margin: auto;
+    margin-top: 100px;
+    background-color: white;
+    box-shadow: 1px 1px 5px #ccc;
+    border-radius: 5px;
+}
+
+.historico > .row > .col > a > button {
+    margin: 10px;
+    color: black;
+    background-color: rgb(252, 237, 32);
+}
+
+.total {
+    text-align: center;
+    box-shadow: 0px 0px 5px #ccc;
+}

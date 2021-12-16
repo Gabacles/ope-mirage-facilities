@@ -1,0 +1,23 @@
+.grafico {
+    width: 140vh;
+    height: 60vh;
+    margin: auto;
+    margin-top: 2%;
+    background-color: white;
+    box-shadow: 1px 1px 5px #ccc;
+    border-radius: 5px;
+}
+
+.titulo-tabela {
+    margin-top: 4%;
+}
+
+#container {
+    margin-left: 0.5%;
+    width: 100%;
+    height: 100%;
+}
+
+.table {
+    margin-top: 5%;
+}

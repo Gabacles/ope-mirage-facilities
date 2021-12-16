@@ -1,0 +1,30 @@
+.tabela-css {
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
+    background-color: white;
+    box-shadow: 1px 1px 5px #ccc;
+    border-radius: 5px;
+}
+
+.form-control {
+    margin: 10px;
+    padding: 10px;
+}
+
+.btn-primary {
+    margin: 10px;
+}
+
+.btn-success {
+    margin: 10px;
+}
+
+.btn-secondary {
+    margin: 10px;
+}
+
+.img-cardapio {
+    margin-left: 15px;
+    width: 25px;
+}

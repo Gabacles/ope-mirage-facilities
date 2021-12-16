@@ -1,0 +1,28 @@
+{% extends 'model.html' %}
+{% block title %}
+<title>Contato</title>
+{% endblock %}
+{% block links %}
+<link rel="stylesheet" href="/static/css/contato.css">
+{% endblock %}
+{% block main %}
+    <form action="" class="contato" method="POST">
+        <div class="card-top">
+            <h2>Entre em contato</h2>
+        </div>
+        <div class="form-group col-md-9">
+            <label for="email">Endereço de email</label>
+            <input type="email" class="form-control" id="email" placeholder="nome@exemplo.com" required>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="telefone">Telefone</label>
+            <input type="tel" class="form-control" id="telefone" required maxlength="12">
+        </div>
+        <div class="form-group col-md-12">
+            <label for="Textarea1">Mensagem</label>
+            <textarea class="form-control" id="Textarea1" rows="3" maxlength="500"></textarea>
+        </div>
+
+
+    </form>
+{% endblock %}

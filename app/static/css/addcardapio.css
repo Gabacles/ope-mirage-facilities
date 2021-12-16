@@ -1,0 +1,30 @@
+.cadastro-produto {
+    width: 600px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 1px 1px 5px #ccc;
+    border-radius: 5px;
+}
+
+.cadastro-produto > .botao {
+    margin-top: 30px;
+}
+
+.cadastro-produto > .botao > button {
+    width: 100px;
+    margin: 10px;
+    margin-left: 215px;
+}
+
+
+.cadastro-produto > .card-top > h2 {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.cadastro-produto > .card-top > a > img {
+    width: 20px;
+    margin-left: 510px;
+}

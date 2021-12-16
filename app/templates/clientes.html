@@ -1,0 +1,48 @@
+{% extends 'model.html' %}
+{% block title %}
+<title>Clientes</title>
+{% endblock %}
+{% block links %}
+<link rel="stylesheet" href="/static/css/clientes.css">
+{% endblock %}
+{% block main %}
+<form action="" class="tabela-css" method="POST">
+    <div class="row">
+        <div class="col busca-nome">
+            <input type="text" name="busca" class="form-control" placeholder="Nome">
+        </div>
+        <div class="col d-flex justify-content-start">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+            <a href="add-cliente"><button type="button" class="btn btn-success">Cadastrar</button></a>
+            {% if nome_encontrado %}
+            <a href="/clientes"><button type="button" class="btn btn-secondary">Voltar</button></a>
+            {% endif %}
+        </div>
+    </div>
+    <table class="table table-responsive-xl">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Email</th>
+                <th scope="col">Detalhes</th>
+                <th scope="col">Criar Pedido</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in client %}
+            <tr>
+                <th scope="row">{{ c.id_cliente }}</th>
+                <td>{{ c.nome }}</td>
+                <td>{{ c.cpf }}</td>
+                <td>{{ c.email }}</td>
+                <td class="btn-detalhes"><a href="/editar/{{c.id_cliente}}"><img src="/static/images/detalhes.png"></a></td>
+                <td class="btn-pedido"><a href="/addpedido/{{c.id_cliente}}"><img src="/static/images/pedido.png"></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+</form>
+{% endblock %}

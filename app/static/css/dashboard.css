@@ -1,0 +1,15 @@
+.dashboard {
+    width: 160vh;
+    margin: auto;
+    margin-top: 4%;
+    background-color: white;
+}
+
+.titulo-tabela-pedido {
+    margin-top: 5%;
+}
+
+.img-detalhes {
+    margin-left: 5%;
+    width: 20px;
+}

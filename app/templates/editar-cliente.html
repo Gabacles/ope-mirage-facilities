@@ -1,0 +1,52 @@
+{% extends 'model.html' %}
+{% block title %}
+    <title>Editar Cliente</title>
+{% endblock %}
+{% block links %}
+    <link rel="stylesheet" href="/static/css/editar-cliente.css">
+{% endblock %}
+{% block main %}
+    <form class="editar-cliente" action="/editar/{{ cliente.id_cliente }}" method="POST">
+        <div class="card-top">
+            <a href="/clientes"><img src="/static/images/close.png"></a>
+            <h2>Editar Cliente</h2>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputName4">Nome</label>
+                <input type="text" name="nome" class="form-control" id="inputName4" value="{{ cliente.nome }}" maxlength="100" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputId4">CPF</label>
+                <input type="text" name="cpf" class="form-control" id="inputId4" value="{{ cliente.cpf }}" maxlength="11" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Email</label>
+                <input type="email" name="email" class="form-control" id="inputEmail4" value="{{ cliente.email }}" maxlength="100" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Telefone</label>
+                <input type="tel" name="telefone" class="form-control" id="inputEmail4" value="{{ cliente.telefone }}" maxlength="11" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputAddress">Endereço</label>
+                <input type="text" name="endereco" class="form-control" id="inputAddress" value="{{ cliente.logradouro }}" maxlength="100" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputCity">Cidade</label>
+                <input type="text" name="cidade" class="form-control" value="{{ cliente.cidade }}" id="inputCity" required>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputCEP">CEP</label>
+                <input type="text" name="cep" class="form-control" id="inputCEP" value="{{ cliente.cep }}" maxlength="8" required>
+            </div>
+        </div>
+        <div class="botoes">
+            <button type="submit" class="btn btn-primary">Alterar</button>
+            <a class="delete" href="/deletar/{{ cliente.id_cliente }}"><button type="button" class="btn btn-primary">Excluir</button></a>
+        </div>
+        
+    </form>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'model.html' %}
+{% block title %}
+<title>Home</title>
+{% endblock %}
+{% block links %}
+<link rel="stylesheet" href="/static/css/index.css">
+{% endblock %}
+{% block main %}
+<form class="entrar" action="/autenticar" method="POST">
+    <div class="card-top">
+        <h2>Faça seu login</h2>
+        {% with mensagens = get_flashed_messages() %}
+            {% if mensagens %}
+                <ul class="erros" style="display: block;">
+                {% for msg in mensagens %}
+                    <li>{{ msg }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Usuário</label>
+        <input name="usuario" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Seu usuário" required>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Senha</label>
+        <input name="senha" type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Entrar</button>
+</form>
+{% endblock %}

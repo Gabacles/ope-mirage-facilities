@@ -1,0 +1,41 @@
+.cadastro-pedido {
+    width: 600px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 1px 1px 5px #ccc;
+    border-radius: 5px;
+}
+
+.cadastro-pedido > button {
+    width: 100px;
+    margin: 10px;
+    margin-left: 215px;
+}
+
+.cadastro-pedido > .form-row {
+    margin-left: 10px;
+}
+
+.cadastro-pedido > .form-row > .form-group.col-md-8 > .select-produto {
+    border-color: rgba(138, 134, 134, 0.548);
+    display: block;
+    width: 330px;
+    border-radius: 5px;
+    height: 38px;
+}
+
+.cadastro-pedido > .card-top > h2 {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.cadastro-pedido > .card-top > a > img {
+    width: 20px;
+    margin-left: 510px;
+}
+
+.cadastro-pedido > .numero-produtos {
+    margin-left: 20px;
+}

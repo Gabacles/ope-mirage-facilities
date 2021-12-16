@@ -1,0 +1,20 @@
+.entrar {
+    margin-left: 18%;
+    width: 600px;
+    margin-top: 100px;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 1px 1px 5px #ccc;
+    border-radius: 5px;
+}
+
+.entrar > .card-top > h2 {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.entrar > .btn.btn-primary {
+    margin-top: 15px;
+    margin-left: 240px;
+}
+

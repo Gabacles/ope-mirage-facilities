@@ -1,0 +1,69 @@
+{% extends 'model.html' %}
+{% block title %}
+<title>Pedidos</title>
+{% endblock %}
+{% block links %}
+<link rel="stylesheet" href="/static/css/pedidos.css">
+{% endblock %}
+{% block main %}
+<form action="" class="tabela-css" method="POST">
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text" name="busca" class="form-control" placeholder="Nome">
+        </div>
+        <div class="escolha-status">
+            <input type="radio" name="status" value="Aberto">
+            <label>Aberto</label>
+            <input type="radio" name="status" value="atendido">
+            <label>Atendido</label>
+            <input type="radio" name="status" value="cancelado">
+            <label>Cancelado</label>
+        </div>
+        <div class="busca-data">
+            <label for="">De</label>
+            <input class="inicio" type="date" name="date-inicio" id=""><br>
+            <label class="fim" for="">A</label>
+            <input class="fim" type="date" name="date-fim" id="">
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+            <a href="/clientes"><button type="button" class="btn btn-success">Novo Pedido</button></a>
+            {% if nome %}
+            <a href="/pedidos"><button type="button" class="btn btn-secondary">Voltar</button></a>
+            {% endif %}
+        </div>
+    </div>
+    <table class="table table-responsive-xl">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID Pedido</th>
+                <th scope="col">Nome Cliente</th>
+                <th scope="col">Data</th>
+                <th scope="col">Status</th>
+                <th scope="col">Detalhes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for npedido, cliente in pedido %}
+            <tr>
+                <th scope="row">{{ npedido.id_pedido }}</th>
+                <td>{{ cliente.nome }}</td>
+                <td>{{ npedido.data.strftime('%d/%m/%Y') }}</td>
+                <td>
+                    {{ npedido.status_pedido }}
+                    {% if npedido.status_pedido == 'aberto' %}
+                        <a href="/atualizar-status/{{npedido.id_pedido}}/atendido"><img alt="Alterar para atendido" class="btn-ok" src="/static/images/ok.png"></a>
+                        <a href="/atualizar-status/{{npedido.id_pedido}}/cancelado"><img alt="Alterar para cancelado" class="btn-ok" src="/static/images/cancel.png"></a>
+                    {% endif %}
+                    {% if npedido.status_pedido == 'atendido' or npedido.status_pedido == 'cancelado' %}
+                        <a href="/atualizar-status/{{npedido.id_pedido}}/aberto"><img alt="Alterar para atendido" class="btn-ok" src="/static/images/back.png"></a>
+                    {% endif %}
+                </td>
+                <td><a href="/editar-pedido/{{npedido.id_pedido}}"><img class="btn-detalhes" src="/static/images/detalhes.png"></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+</form>
+{% endblock %}
